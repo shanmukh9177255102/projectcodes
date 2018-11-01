@@ -1,0 +1,206 @@
+<DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    /* 
+  fillRect(x,y,width,height) ,
+  strokeRect(x,y,w,h) ,
+  clearRect(x,y,w,h),
+  
+  beginPath() ,
+  moveTo(x,y) ,
+  closePath() ,
+  fill() ,
+  Stroke(),
+  arc(x,y,radius,strt angle,end angle,anticlockwise)
+  lineTo(x,y)
+  lineWidth
+  lineCap
+  lineJoin
+  miterLimit
+  quadraticCurveTo(cpx,cpy,x,y)
+   #draw{
+           border:5px solid green;
+   }
+   */
+   #shan{
+   width:200px;
+   height:200px;
+   margin:0px auto;
+   }
+  </style>
+  <script type="text/javascript">
+  function drawing1()
+  {
+  var canvas = document.getElementById("draw");
+	if(canvas.getContext)
+	{
+	var ctx=canvas.getContext('2d');
+	ctx.fillRect(25,25,100,100);
+	ctx.strokeRect(50,50,50,50);
+	ctx.clear(45,45,60,60);
+	}
+	else
+	alert("not supported..");
+	}
+  function drawing(){
+    var canvas = document.getElementById("draw");
+	if(canvas.getContext)
+	{
+	var path=canvas.getContext('2d');
+	path.beginPath();
+	path.arc(80,80,60,0,Math.PI*2,true);
+	path.moveTo(120,80);
+	path.arc(80,80,40,0,Math.PI,false);
+	path.moveTo(120,80);
+	path.arc(70,75,10,0,Math.PI*2,true);
+	path.stroke();
+	}
+	else
+	alert("Your browser doesnt support Canvas");
+	}
+	function drawTriangle(){
+	var canvas = document.getElementById("draw");
+	if(canvas.getContext)
+	{
+	var triangle=canvas.getContext('2d');
+	triangle.beginPath();
+	triangle.moveTo(30,30);
+	triangle.lineTo(120,30);
+	triangle.lineTo(30,120);
+	triangle.fill();
+	triangle.closePath();
+	triangle.stroke();
+	}
+	}
+	function drawBarLine()
+	{
+	var canvas = document.getElementById("draw");
+	if(canvas.getContext)
+	{
+	var barline=canvas.getContext('2d');
+	for(x=0;x<12;x++)
+	{
+	barline.lineWidth=1+x;
+	barline.beginPath();
+	barline.moveTo(5+x*15,5);
+	barline.lineTo(5+x*14,140);
+	barline.stroke();
+	}
+	}
+	}
+	function drawBezierCurve()
+	{
+	var canvas = document.getElementById("draw");
+	if(canvas.getContext)
+	{
+	var curve=canvas.getContext('2d');
+	curve.beginPath();
+	curve.moveTo(75,40);
+	
+	curve.bezierCurveTo(75,37,70,25,50,25);
+	curve.bezierCurveTo(20,25,20,62.5,20,62.5);
+	
+	curve.bezierCurveTo(20,80,40,102,75,120);
+	curve.bezierCurveTo(110,102,130,80,130,62.5);
+	
+	curve.bezierCurveTo(130,62.5,130,25,100,25);
+	curve.bezierCurveTo(85,25,75,37,75,40);
+	
+	curve.fill();
+	}
+	
+	}
+	function drawQuadCurve()
+	{
+	var canvas = document.getElementById("draw");
+	if(canvas.getContext)
+	{
+	var qcurve=canvas.getContext('2d');
+	qcurve.beginPath();
+	qcurve.moveTo(75,25);
+	qcurve.quadraticCurveTo(25,25,25,62.5);
+	qcurve.quadraticCurveTo(25,100,50,100);
+	qcurve.quadraticCurveTo(50,120,30,125);
+	qcurve.quadraticCurveTo(60,120,65,100);
+	qcurve.quadraticCurveTo(125,100,125,62.5);
+	qcurve.quadraticCurveTo(125,25,75,25);
+	qcurve.stroke();
+	qcurve.fill();
+	}
+	}
+	function drawMulticolor()
+	{
+	var canvas = document.getElementById("draw");
+	if(canvas.getContext)
+	{
+	var color=canvas.getContext('2d');
+	for(var x=0;x<7;x++)
+	for(var y=0;y<7;y++)
+	{
+	color.fillStyle='rgb('+Math.floor(255-20.5*x)+','+Math.floor(255-42.5*y)+',255)';
+	color.fillRect(y*25,x*25,55,55);
+	}
+	}
+	}
+	function textFont()
+	{
+	var canvas = document.getElementById("draw");
+	if(canvas.getContext)
+	{
+	var txt=canvas.getContext('2d');
+	txt.fillStyle ='#00ff00';
+	txt.font ='Italic 25px Algerian';
+	txt.font='30px, Algeria';
+	txt.strokeText('Shannu',40,40);
+	txt.TextBaseline ='Top';
+	txt.fillText('Shannu',40,100);
+	}
+	}
+	// createPattern(img,repitition);
+	function drawPattern()
+	{
+	var canvas = document.getElementById("draw");
+	if(canvas.getContext)
+	{
+	var pat=canvas.getContext('2d');
+	var img=new Image();
+	img.src='images/sntpilogo.png';
+	img.onload=function(){
+	var ptrn=pat.createPattern(img,'repeat-x');
+	pat.fillStyle=ptrn;
+	pat.fillRect(0,0,200,200);
+	}
+	}
+	}
+	/*
+	shadowColor[=val] ,shadowOffsetx[=val],shadowOffsety[=val]
+	shadowBlur[=val]
+	*/
+	function drawShadow(){
+	var canvas = document.getElementById("draw");
+	if(canvas.getContext)
+	{
+	var shad=canvas.getContext('2d');
+	  shad.shadowOffsetX=2;
+	  shad.shadowOffsetY=2;
+	  
+	  shad.shadowBlur =2;
+	  shad.shadowColor="rgba(0,0,0,0.3)";
+	  
+	  shad.font="25px Algerian";
+	  shad.fillStyle="red";
+	  
+	  shad.fillText('shannu shadow text',5,30);
+	}
+	}
+  </script>
+</head>
+
+
+<body id="shan" onload="drawShadow();">
+    <canvas id="draw"></canvas>
+</body>
+
+</html>

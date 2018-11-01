@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div{
+width:500px;
+height: 200px;
+background-color:green;
+border:3px solid yellow;
+}
+div#rot{
+/* standard syntax
+transform:rotate(-125deg);
+-ms-transform:rotate(-125deg);
+-webkit-transform:rotate(45deg);
+*/
+/*
+transform:skewX(-125deg);
+-ms-transform:skewX(-125deg);
+-webkit-transform:skewY(125deg);
+*/
+/*
+transform:matrix(1,-0.3,0,1,0,0);
+-ms-transform:matrix(1,-0.3,0,1,0,0);
+-webkit-transform:matrix(1,-0.3,0,1,0,0);
+*/
+transform:rotateX(-125deg);
+-ms-transform:rotateX(-125deg);
+-webkit-transform:rotateZ(90deg);
+}
+</style>
+</head>
+
+
+<body>
+
+<div>www.gsteve.com</div>
+<div id="rot">www.gsteve.com</div>
+</body>
+
+
+</html>

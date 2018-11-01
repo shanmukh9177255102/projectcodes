@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script type="text/javascript">
+function over()
+{
+document.write("mouse over");
+}
+function out()
+{
+document.write("mouse out");
+}
+function pagerefresh(t)
+{
+setTimeout("location.reload(true);",t);
+}
+function Redirect(){
+window.location="https://www.google.com";
+}
+
+function confirmation()
+{
+var Steve=confirm("Do you really like");
+if(Steve==true){document.write("yes");return true;}
+else{document.write("No");return false;}
+
+}
+function getprompted()
+{
+var val=prompt("Enter ur Name");
+document.write(val);
+}
+function printpage()
+{
+window.print();
+}
+</script>
+</head>
+
+<!--body onload="Javascript:pagerefresh(6000);">
+<button onmouseover="over()"  onmouseout="out()">mouse</button>-->
+<body>
+<p>This is reload pagesd</p>
+<form>
+<button  onclick="Redirect();">Redirect visitors</button>
+</form>
+</body>
+
+</html>

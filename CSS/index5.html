@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<!-- rgb,rgba,hsl,hsla,opacity -->
+<!--hue,saturation,lightness -->
+<html>
+<head>
+<style>
+#rgba1{
+background-color:rgba(255,0,0,0.4);
+}
+#rgba2{
+background-color:rgba(0,255,0,0.4);
+}
+#rgba3{
+background-color:rgba(0,0,255,0.4);
+}
+#hsl1{
+background-color:hsl(120,100%,50%);
+}
+#hsl2{
+background-color:hsl(120,100%,75%);
+}
+#hsl3{
+background-color:hsl(120,100%,30%);
+}
+#hsla1{
+background-color:hsla(120,100%,50%,0.4);
+}
+#hsla2{
+background-color:hsla(120,100%,75%,0.4);
+}
+#hsla3{
+background-color:hsla(120,100%,30%,0.4);
+}
+#opa{
+background-color:rgb(120,200,50);opacity:0.4;}
+}
+#grady{
+height:100px;
+background: -webkit-linear-gradient(yellow,green);
+background: -o-linear-gradient(yellow,green);
+background: -moz-linear-gradient(yellow,green);
+background: linear-gradient(yellow,green);
+}
+</style>
+</head>
+<body>
+<div id="grady">Linear gradient</div>
+<p id="rgba1">Red</p>
+<p id="rgba2">Green</p>
+<p id="rgba3">Blue</p>
+<p id="hsl1">Green1</p>
+<p id="hsl2">Green2</p>
+<p id="hsl3">Green3</p>
+<p id="hsla1">Green1</p>
+<p id="hsla2">Green2</p>
+<p id="hsla3">Green3</p>
+<p id="opa">opacity..</p>
+</body>
+</html>
