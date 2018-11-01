@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>..</title>
+<script type="text/javascript">
+
+function show()
+{
+var x=document.forms["ourform"]["inputEmail"].value;
+document.forms["ourform"]["result"].value="Welcome "+x;
+}
+</script>
+</head>
+
+<body>
+
+<form name="ourform" method="get">
+Enter email:<input type="email" name="inputEmail" placeholder="example@mail.com" autofocus /><br><br>
+Password :<input type="password" name="paswrd" required/>
+<input type="button" onclick="show();" name="btnOK" value="show Email"/><br><br>
+<output name="result"/>
+</form>
+</body>
+
+</html>
