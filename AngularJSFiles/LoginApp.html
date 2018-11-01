@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Angular | Login </title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="angular-route.min.js"></script>
+</head>
+<body ng-app="LoginApp">
+<form action='/' name="frm">
+<div align="center" ng-controller="loginctrl">
+Username:<input type="text" name="username" ng-model="username"/><br><br>
+Password:<input type="password" name="password" ng-model="password"/><br><br>
+<Button type="button" ng-click="submit()">Submit</Button>
+</div>
+</form>
+<script>
+var app = angular.module('LoginApp', ['ngRoute']);
+app.config(function($routeProvider) {
+$routeProvider
+.when('/login',
+{
+templateUrl:"LoginApp"
+})
+.when('/dashboard',
+{
+ resolve:
+	{
+		"check":function($rootScope,$location)
+		{
+			if($rootScope.loginflag==1){ $location.path('/dashboard.html');}
+               else{  $location.path('/LoginApp');}
+		}
+	}
+})
+.otherwise(
+{
+redirectTo:"LoginApp.html"
+});
+});
+app.controller('loginctrl',function($scope,$rootScope,$location)
+{   $rootScope.loginflag=0;
+	$scope.submit=function()
+	{
+		if($scope.username==="admin" && $scope.password==="admin")
+		{
+			$rootScope.loginflag=1;
+			$location.path('/dashboard');
+		}
+}});
+</script>
+</body>
+</html>

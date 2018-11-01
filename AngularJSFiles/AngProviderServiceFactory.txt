@@ -1,0 +1,15 @@
+
+provider
+- it is used in case of configuration.
+- only providers can be accessible in   module.Config( function(proName+"Provider"){});
+- returns what ever $get returns...
+
+factory
+-same as provider..
+-it takes function argument and assigns to $get method..
+-if need any computation..
+-it can return any value..
+
+service
+-it returns whole body of function...(provides class/function)..........
+-we can access functions also....

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Angular | Routing </title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="angular-route.min.js"></script>
+<body>
+
+<div ng-app="myApp">
+<div ng-view></div>
+</div>
+<script>
+var app = angular.module('myApp', ['ngRoute']);
+app.config(function($routeProvider) {
+$routeProvider.
+when('/',
+{
+template:"inside normal"
+})
+.when('/temp',
+{
+template:"inside temp"
+templateUrl:"angular4.html"
+}).
+otherwise(
+{
+template:"It's in otherwise"
+});
+});
+</script>
+</body>
+</html>

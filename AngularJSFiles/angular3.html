@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<button type="button" ng-click="c()">C</button>
+<button type="button" ng-click="cpp()">C++</button>
+<button type="button" ng-click="ch()">C##</button>
+<button type="button" ng-click="java()">Java</button>
+<p>My fav Language:{{myfavlang}}</p>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+$scope.myfavlang='None';
+$scope.c=function()
+{
+//alert("## clicked c);
+$scope.myfavlang="c";
+};
+$scope.cpp=function()
+{
+//alert("## clicked c++);
+$scope.myfavlang="c++";
+};
+$scope.ch=function()
+{
+//alert("## clicked c##);
+$scope.myfavlang="c##";
+};
+$scope.java=function()
+{
+//alert("## clicked java);
+$scope.myfavlang="java";
+};
+});
+</script>
+</body>
+</html>

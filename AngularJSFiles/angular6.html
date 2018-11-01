@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Angular | ng-Repeat</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="angular-route.min.js"></script>
+<body>
+<div ng-app="httpApp">
+<ul ng-controller="ctrl">
+<li ng-repeat="person in persons">
+{{person.Name}}</li>
+</ul>
+</div>
+<script>
+var app=angular.module('httpApp',[]);
+app.controller('ctrl',function($scope,$http)
+{
+$http.get("https://localhost:8080/records.json")
+.success(function(response){
+$scope.persons=response.records;})
+.failure(function(error){});
+});
+</script>
+</body>
+</html>
